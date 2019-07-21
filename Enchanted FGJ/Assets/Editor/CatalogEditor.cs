@@ -7,6 +7,7 @@ using System.IO;
 
 public class CatalogEditor : EditorWindow
 {
+	/*
 	public Catalog craftData;
 	private string catalogFilePath = "/StreamingAssets/craftcatalog.json";
 	private Vector2 scrollPos;
@@ -14,11 +15,11 @@ public class CatalogEditor : EditorWindow
 	private bool foundResults = false;
 	private bool foundFamiliar = false;
 	private bool foundSpell = false;
-	private bool foundEquip = false;
+	private bool foundTalisman = false;
 	private bool changesMade = true;
 	public Familiar openFamiliar;
 	public Spell openSpell;
-	public Equip openEquip;
+	public Talisman openTalisman;
 	private bool searchedOnce = false;
 	private bool resultsCleared = false;
 	
@@ -59,9 +60,9 @@ public class CatalogEditor : EditorWindow
 			SerializedProperty editSpellNotes = serializedObject.FindProperty("openSpell.designNotes");
 
 
-			SerializedProperty editEquipName = serializedObject.FindProperty("openEquip.name");
-			SerializedProperty editEquipDescription = serializedObject.FindProperty("openEquip.description");
-			SerializedProperty editEquipNotes = serializedObject.FindProperty("openEquip.designNotes");
+			SerializedProperty editTalismanName = serializedObject.FindProperty("openTalisman.name");
+			SerializedProperty editTalismanDescription = serializedObject.FindProperty("openTalisman.description");
+			SerializedProperty editTalismanNotes = serializedObject.FindProperty("openTalisman.designNotes");
 
 
 
@@ -82,13 +83,13 @@ public class CatalogEditor : EditorWindow
 				foundResults = false;
 				foundFamiliar = false;
 				foundSpell = false;
-				foundEquip = false;
+				foundTalisman = false;
 
 				chooseAspects.DeadCheck();
 				if (!chooseAspects.dead)
 				{
 					
-					int targetLocation = chooseAspects.KeysToLocation(chooseAspects.GetKeys());
+					int targetLocation = chooseAspects.KeyToLocation(chooseAspects.aspectKey);
 
 					if (chooseAspects.type == TypeAspect.Familiar)
 					{
@@ -118,15 +119,15 @@ public class CatalogEditor : EditorWindow
 						}
 					}
 
-					if (chooseAspects.type == TypeAspect.Equip)
+					if (chooseAspects.type == TypeAspect.Talisman)
 					{
-						foreach (Equip equip in craftData.allEquips)
+						foreach (Talisman equip in craftData.allTalismans)
 						{
 							if (equip.uniqueLocation == targetLocation)
 							{
 								foundResults = true;
-								foundEquip = true;
-								openEquip = equip;
+								foundTalisman = true;
+								openTalisman = equip;
 								break;
 							}
 						}
@@ -156,14 +157,14 @@ public class CatalogEditor : EditorWindow
 					EditorGUILayout.LabelField("Unique ID: " + openSpell.uniqueLocation);
 				}
 
-				if (foundEquip && openEquip != null)
+				if (foundTalisman && openTalisman != null)
 				{
-					EditorGUILayout.LabelField("Casting Aspects: " + openEquip.type.ToString() + " Type | " + openEquip.element.ToString() + " Element | " + openEquip.brand.ToString() + " Brand | " + openEquip.style.ToString() + " Style | " + openEquip.form.ToString() + " Form");
-					EditorGUILayout.PropertyField(editEquipName, true);
-					EditorGUILayout.PropertyField(editEquipDescription, true);
-					EditorGUILayout.LabelField("Equip-specific variables coming soon.");
-					EditorGUILayout.PropertyField(editEquipNotes, true);
-					EditorGUILayout.LabelField("Unique ID: " + openEquip.uniqueLocation);
+					EditorGUILayout.LabelField("Casting Aspects: " + openTalisman.type.ToString() + " Type | " + openTalisman.element.ToString() + " Element | " + openTalisman.brand.ToString() + " Brand | " + openTalisman.style.ToString() + " Style | " + openTalisman.form.ToString() + " Form");
+					EditorGUILayout.PropertyField(editTalismanName, true);
+					EditorGUILayout.PropertyField(editTalismanDescription, true);
+					EditorGUILayout.LabelField("Talisman-specific variables coming soon.");
+					EditorGUILayout.PropertyField(editTalismanNotes, true);
+					EditorGUILayout.LabelField("Unique ID: " + openTalisman.uniqueLocation);
 				}
 
 				if (GUILayout.Button("Clear Results"))
@@ -171,7 +172,7 @@ public class CatalogEditor : EditorWindow
 					foundResults = false;
 					foundFamiliar = false;
 					foundSpell = false;
-					foundEquip = false;
+					foundTalisman = false;
 					resultsCleared = true;
 				}
 			}
@@ -200,12 +201,10 @@ public class CatalogEditor : EditorWindow
 			}
 		}
 
-		/*
-		if (GUILayout.Button("Load Catalog"))
-		{
-			LoadGameData();
-		}
-		*/
+		//if (GUILayout.Button("Load Catalog"))
+		//{
+		//	LoadGameData();
+		//}
 
 		EditorGUILayout.EndScrollView();
 		EditorGUILayout.EndVertical();
@@ -232,4 +231,5 @@ public class CatalogEditor : EditorWindow
 		string filePath = Application.dataPath + catalogFilePath;
 		File.WriteAllText(filePath, dataAsJson);
 	}
+	*/
 }

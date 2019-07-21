@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: bf84299314485d2499638e481192f3f7
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Open Sans SemiBold
+  fontNames:
+  - Open Sans SemiBold
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 44aeae4befb9cff42923526d37d8bf4e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
